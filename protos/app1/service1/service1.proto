@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service TestTraffic {
+    rpc build_test(AccessToken) returns (Response);
+}
+
+
+message Response {
+    string http_code = 1;
+}
+
+message AccessToken {
+    string access = 1;
+}
