@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-from protos.app1.service1 import service1_pb2 as protos_dot_app1_dot_service1_dot_service1__pb2
+from protos.application1.example1 import example1_pb2 as protos_dot_application1_dot_example1_dot_example1__pb2
 
 GRPC_GENERATED_VERSION = '1.64.1'
 GRPC_VERSION = grpc.__version__
@@ -20,7 +20,7 @@ except ImportError:
 if _version_not_supported:
     warnings.warn(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in protos/app1/service1/service1_pb2_grpc.py depends on'
+        + f' but the generated code in protos/application1/example1/example1_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
@@ -41,8 +41,8 @@ class TestTrafficStub(object):
         """
         self.build_test = channel.unary_unary(
                 '/TestTraffic/build_test',
-                request_serializer=protos_dot_app1_dot_service1_dot_service1__pb2.AccessToken.SerializeToString,
-                response_deserializer=protos_dot_app1_dot_service1_dot_service1__pb2.Response.FromString,
+                request_serializer=protos_dot_application1_dot_example1_dot_example1__pb2.AccessToken.SerializeToString,
+                response_deserializer=protos_dot_application1_dot_example1_dot_example1__pb2.Response.FromString,
                 _registered_method=True)
 
 
@@ -60,8 +60,8 @@ def add_TestTrafficServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'build_test': grpc.unary_unary_rpc_method_handler(
                     servicer.build_test,
-                    request_deserializer=protos_dot_app1_dot_service1_dot_service1__pb2.AccessToken.FromString,
-                    response_serializer=protos_dot_app1_dot_service1_dot_service1__pb2.Response.SerializeToString,
+                    request_deserializer=protos_dot_application1_dot_example1_dot_example1__pb2.AccessToken.FromString,
+                    response_serializer=protos_dot_application1_dot_example1_dot_example1__pb2.Response.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -89,8 +89,8 @@ class TestTraffic(object):
             request,
             target,
             '/TestTraffic/build_test',
-            protos_dot_app1_dot_service1_dot_service1__pb2.AccessToken.SerializeToString,
-            protos_dot_app1_dot_service1_dot_service1__pb2.Response.FromString,
+            protos_dot_application1_dot_example1_dot_example1__pb2.AccessToken.SerializeToString,
+            protos_dot_application1_dot_example1_dot_example1__pb2.Response.FromString,
             options,
             channel_credentials,
             insecure,
